@@ -1,0 +1,40 @@
+<html>
+<head>
+  <title>Follow the routes</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div style="margin:100px;" class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">Express HTML</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/products">Products</a>
+      </li>
+      <li class="active">
+        <a href="/newproduct">New product</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="jumbotron"  style="padding:40px;">
+      <h1>Add Product</h1>
+      <p><form action="/productspage">
+  <label for="fname">id:</label>
+  <input type="text" id="pid" name="fname"><br><br>
+  <label for="lname">Name:</label>
+  <input type="text" id="pname" name="lname"><br><br>
+   <label for="lname">Price:</label>
+  <input type="text" id="pprice" name="lname"><br><br>
+  <input type="submit" value="Submit">
+</form></p>
+    </div>
+  </div>
+</body>
+</html>

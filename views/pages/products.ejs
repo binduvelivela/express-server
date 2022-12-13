@@ -1,0 +1,59 @@
+<html>
+<head>
+  <title>Follow the routes</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div style="margin:100px;" class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">Express HTML</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li class="active" >
+        <a href="/products">Products</a>
+      </li>
+      <li>
+        <a href="/newproduct">New product</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="jumbotron"  style="padding:40px;">
+      <h1>Products</h1>
+      <table id="table-body"></table>
+      <p> <%= productid1 %>  <%= productname1 %> </br>
+        <%= productid2 %>  <%= productname2 %>
+    </p>
+      
+    </div>
+  </div>
+</body>
+<script type="text/javascript">
+    fetch("/getproducts")
+        .then((response) => {
+            return response.json();
+        })
+        .then(data => {
+            var tableBody = document.getElementById('table-body');
+            for (var i = 0; i < products.length; i++) {
+                var tr = document.createElement('tr');
+                var index = document.createElement('td');
+                var product = document.createElement('td');
+                var product = document.createElement('td');
+
+                index.appendChild(document.createTextNode(i + 1));
+                product.appendChild(document.createTextNode(products[i]));
+
+                tr.appendChild(index);
+                tr.appendChild(product);
+
+                tableBody.appendChild(tr);
+            }
+        });
+</script>
+</html>
