@@ -27,22 +27,23 @@ router.get("/newproduct", function (req, res) {
 });
 
 app.get("/getproducts", (req, res) => {
-  const productsString = fs.readFileSync("products.txt").toString();
+  const productsString = fs.readFileSync("data.json").toString();
   const productArray = productsString.split("\n");
   res.send(productArray);
 });
 
 app.post("/productspage", (req, res) => {
-  fs.appendFile("products.txt", "\n" + req.body.product, function (err) {
+  fs.appendFile("data.json", "\n" + req.query.fname, function (err) {
     res.send("Saved!");
   });
 });
 
-/*app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname + "/NotFound.html"));
-});*/
 //add the router
 app.use("/", router);
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname + "/NotFound.html"));
+});
 
 app.listen(8000, () => {
   console.log("Application listening on port 8000!");
